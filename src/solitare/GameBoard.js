@@ -4,8 +4,8 @@ import Foundation from './Foundation';
 
 class GameBoard
 {
-    constructor(cards){
-        this.Deck = new Deck(cards);
+    constructor(deckOfCards){
+        this.Deck = deckOfCards;
         this.Deck.shuffle(); 
         this.Piles = [new Pile(),new Pile(),new Pile(),new Pile(),new Pile(),new Pile(),new Pile()]; 
         this.Foundations = [new Foundation(),new Foundation(),new Foundation(),new Foundation()]; 
@@ -23,6 +23,8 @@ class GameBoard
             }
         }
     }
+
+
 
     toJSON(){
         return {

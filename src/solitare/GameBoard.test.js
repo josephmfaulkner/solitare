@@ -3,7 +3,7 @@ import {NewGame} from './GameBoard'
 
 it('New Game Structure',() => {
 
-    let deck = Deck.fullDeck();
+    let deck = new Deck.Deck(Deck.fullDeck());
 
     let newGame = NewGame(deck);
 
@@ -17,7 +17,7 @@ it('New Game Structure',() => {
 
 it('New Game Structure Populated',() => {
 
-    let deck = Deck.fullDeck();
+    let deck = new Deck.Deck(Deck.fullDeck());
 
     let newGame = NewGame(deck);
 
