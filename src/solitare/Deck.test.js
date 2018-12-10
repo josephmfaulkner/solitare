@@ -46,13 +46,11 @@ it ('Deck Draw Card', () => {
 it ('ShuffleDeck', () => {
     let deckOne = new Deck.Deck(Deck.fullDeck()); 
     let deckTwo = new Deck.Deck(Deck.fullDeck()); 
-    deckTwo.shuffle();
     expect(deckOne.Cards.length).toBe(deckTwo.Cards.length);
     let cardOne = deckOne.TopCard();
     let cardTwo = deckTwo.TopCard();
 
     expect(cardOne).not.toBe(cardTwo);
 
-    console.log(deckTwo.Cards);
 });
 
