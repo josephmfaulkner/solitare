@@ -63,6 +63,14 @@ class Deck {
         this.Cards = cards; 
     }
 
+    shuffle()
+    {
+        for (let i = this.Cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.Cards[i], this.Cards[j]] = [this.Cards[j], this.Cards[i]];
+        }
+    }
+
     TopCard()
     {
         if(this.Cards.length <= 0)
@@ -86,7 +94,7 @@ class Deck {
         return this.Cards[0];
     }
 
-    pullTopCard()
+    drawTopCard()
     {
         if(this.Cards.length <= 0)
         {

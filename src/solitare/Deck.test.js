@@ -35,6 +35,24 @@ it ('Deck Next Card', () => {
     expect(cardAtEnd).toBe(card);
 });
 
-it ('Deck Pull Card', () => {
-    
+it ('Deck Draw Card', () => {
+    let cardTop = deck.TopCard();
+    let cardDraw = deck.drawTopCard();
+
+    expect(cardDraw).toBe(cardTop);
+    expect(deck.Cards.length).toBe(51);
 });
+
+it ('ShuffleDeck', () => {
+    let deckOne = new Deck.Deck(Deck.fullDeck()); 
+    let deckTwo = new Deck.Deck(Deck.fullDeck()); 
+    deckTwo.shuffle();
+    expect(deckOne.Cards.length).toBe(deckTwo.Cards.length);
+    let cardOne = deckOne.TopCard();
+    let cardTwo = deckTwo.TopCard();
+
+    expect(cardOne).not.toBe(cardTwo);
+
+    console.log(deckTwo.Cards);
+});
+
