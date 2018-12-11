@@ -55,6 +55,14 @@ class Card
         this.SideUp = false;
     }
 
+    toJSON(){
+        return {
+            "Suite": this.Suite,
+            "Rank": this.Rank,
+            "SideUp": this.SideUp,
+        };
+    }
+
     Color(){
         if(this.Suite == Spade || this.Suite == Club)
         {

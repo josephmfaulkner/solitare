@@ -9,6 +9,8 @@ it('New Game Structure',() => {
 
     let newGameState = newGame.toJSON(); 
 
+    console.log(newGameState);
+
     expect(newGameState["deck"]).not.toBeNull(); 
     expect(newGameState["piles"]).not.toBeNull(); 
     expect(newGameState["foundations"]).not.toBeNull(); 

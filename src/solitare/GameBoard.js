@@ -6,7 +6,6 @@ class GameBoard
 {
     constructor(deckOfCards){
         this.Deck = deckOfCards;
-        this.Deck.shuffle(); 
         this.Piles = [new Pile(),new Pile(),new Pile(),new Pile(),new Pile(),new Pile(),new Pile()]; 
         this.Foundations = [new Foundation(),new Foundation(),new Foundation(),new Foundation()]; 
         this._dealCards(); 
@@ -24,25 +23,27 @@ class GameBoard
         }
     }
 
+    _cardsToJSON(arrayOfCards){
 
+    }
 
     toJSON(){
         return {
-            "deck": this.Deck.Cards, 
+            "deck": this.Deck.Cards.map(function(card){return card.toJSON()}), 
             "piles": [
-                this.Piles[0].Cards,
-                this.Piles[1].Cards,
-                this.Piles[2].Cards,
-                this.Piles[3].Cards,
-                this.Piles[4].Cards,
-                this.Piles[5].Cards,
-                this.Piles[6].Cards
+                this.Piles[0].Cards.map(function(card){return card.toJSON()}),
+                this.Piles[1].Cards.map(function(card){return card.toJSON()}),
+                this.Piles[2].Cards.map(function(card){return card.toJSON()}),
+                this.Piles[3].Cards.map(function(card){return card.toJSON()}),
+                this.Piles[4].Cards.map(function(card){return card.toJSON()}),
+                this.Piles[5].Cards.map(function(card){return card.toJSON()}),
+                this.Piles[6].Cards.map(function(card){return card.toJSON()})
             ],
             "foundations": [
-                this.Foundations[0].Cards,
-                this.Foundations[1].Cards,
-                this.Foundations[2].Cards,
-                this.Foundations[3].Cards
+                this.Foundations[0].Cards.map(function(card){return card.toJSON()}),
+                this.Foundations[1].Cards.map(function(card){return card.toJSON()}),
+                this.Foundations[2].Cards.map(function(card){return card.toJSON()}),
+                this.Foundations[3].Cards.map(function(card){return card.toJSON()})
             ]
         }
     }

@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
+import Console from './components/Console';
+import {Deck, fullDeck} from './solitare/Deck';
+import {NewGame} from './solitare/GameBoard';
+
 class App extends Component {
+  
+  constructor(props){
+    super(props);
+    this.gameBoard = null; 
+  }
+
+  componentDidMount(){
+    this.gameBoard = NewGame(new Deck(fullDeck())); 
+    console.log(this.gameBoard.toJSON());
+  }
+  
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>Solitare</h1>
+        <Console/>
       </div>
     );
   }
